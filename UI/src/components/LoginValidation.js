@@ -23,3 +23,4 @@ function Validation(values){
     }
     return error;
 }
+export default Validation;

@@ -1,6 +1,6 @@
-import CarouselComp from "../carouselComp";
-import CardComponent from "./cardComponent";
-import FAQ from "./faq";
+import CarouselComp from "./CarouselComp";
+import CardComponent from "./CardComponent";
+import FAQ from "./FAQ";
 
 const Home = () => {
     return (

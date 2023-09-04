@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import loginimg from '../assets/login.jpg'
-// import axios from 'axios'
-import { Link } from 'react-router-dom';
+import axios from 'axios'
+import { Link, useNavigate } from 'react-router-dom';
 import Validation from './LoginValidation';
 
 export default function Login() {
@@ -11,6 +11,7 @@ export default function Login() {
     password: ''
   })
 
+  const navigate = useNavigate();
   const [errors, setErrors] = useState({})
   const handleInput = (event) => {
     setValues((prev) => ({
@@ -22,6 +23,22 @@ export default function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
     setErrors(Validation(values));
+    if (
+      errors.email !== "" &&
+      errors.password !== ""
+    ) {
+      console.log("i m here");
+      axios
+        .post("http://localhost:8081/login", values)
+        .then((res) => {
+          if (res.data === "Login successful") {
+            navigate("/home");
+          } else {
+            alert("no record existed");
+          }
+        })
+        .catch((err) => console.log(err));
+    }
 }
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 h-screen w-full">
