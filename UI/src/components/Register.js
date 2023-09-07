@@ -23,8 +23,14 @@ const Register = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setErrors(Validation(values));
-    console.log(values, event);
-    
+    if (errors.email !== "" && errors.password !== "") {
+      axios
+        .post("http://localhost:8081/register", values)
+        .then((res) => {
+            navigate("/");       
+        })
+        .catch((err) => console.log(err));
+    }
 }
   return (
     <div className="flex min-h-screen bg-gray-100">

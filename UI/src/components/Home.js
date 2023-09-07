@@ -1,9 +1,12 @@
 import CarouselComp from "./CarouselComp";
 import CardComponent from "./CardComponent";
 import FAQ from "./FAQ";
+import Navbar from "./Navbar";
 
 const Home = () => {
-    return (
+  return (
+    <div>
+      <Navbar />
       <div className="carousel">
         <div>
           <CarouselComp />
@@ -15,7 +18,8 @@ const Home = () => {
           <FAQ />
         </div>
       </div>
-    );
-}
- 
+    </div>
+  );
+};
+
 export default Home;

@@ -27,7 +27,6 @@ export default function Login() {
       errors.email !== "" &&
       errors.password !== ""
     ) {
-      console.log("i m here");
       axios
         .post("http://localhost:8081/login", values)
         .then((res) => {

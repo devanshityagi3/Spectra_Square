@@ -30,7 +30,7 @@ app.post("/register", (req, res) => {
 app.post("/login", (req, res) => {
   const sql = "select *from register where email =? AND password =?";
 
-  db.query(sql, [req.body.email, req.body, password], (err, data) => {
+  db.query(sql, [req.body.email, req.body, req.password], (err, data) => {
     if (err) return res.json("Error");
     if (data.length > 0) {
       return res.json("Login successful");
