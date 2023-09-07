@@ -1,0 +1,18 @@
+
+{
+    "products":
+    [
+        {
+            "id":1,
+            "pname":"Nike Air Force 1 High By You Women's Custom Shoes",
+            "pimage":"/images/products/Nike.jpeg",
+            "pprice":"₹13,295.00 INR"
+        },
+        {
+            "id":2,
+            "pname":"Air-Jordans-2",
+            "pimage":"/images/products/Air-Jordans-2.jpg",
+            "pprice":"₹56,000.00 INR"
+        }
+    ]
+}

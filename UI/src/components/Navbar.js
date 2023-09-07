@@ -16,9 +16,7 @@ const Navbar = () => {
   return (
     <nav className="bg-slate-900 p-4">
       <div className="flex items-center justify-between">
-        <Link to="/" className="text-white font-semibold text-lg">
-          My Website
-        </Link>
+        <Link to="/" className="text-white font-semibold text-lg">Spectra Square</Link>
         <div className="md:hidden">
           <button
             onClick={toggleMenu}
