@@ -2,8 +2,12 @@ import { FaSpinner } from "react-icons/fa";
 import Navbar from "./Navbar";
 import ProdItem from "./ProdItem";
 import useFetch from "./useFetch";
+import Filters from "./Filters";
+import Search from "./Search";
+
 
 const ProductListPage = () => {
+  
   const { data, isPending, error } = useFetch("http://localhost:8000/products");
   if (error) {
     return <div>Error: {error}</div>;
@@ -12,28 +16,33 @@ const ProductListPage = () => {
   }
 
   return (
-    <div className="bg-slate-900 text-white">
+    <div>
       <Navbar></Navbar>
-      <h1>Products</h1>
-      <div className="flex flex-row">
-        {isPending ? (
-          <div>
-            <FaSpinner />
-          </div>
-        ) : data?.length !== 0 ? (
-          data.map((prod) => (
-            <ProdItem
-              key={prod.id}
-              pname={prod.pname}
-              pimage={prod.pimage}
-              pprice={prod.pprice}
-            ></ProdItem>
-          ))
-        ) : (
-          <div>
-            <FaSpinner />
-          </div>
-        )}
+      <div className="m-3">
+        <Search />
+      </div>
+      <div className="flex flex-row gap-3 m-5">
+        <Filters />
+        <div className="flex flex-row">
+          {isPending ? (
+            <div>
+              <FaSpinner />
+            </div>
+          ) : data?.length !== 0 ? (
+            data.map((prod) => (
+              <ProdItem
+                key={prod.id}
+                pname={prod.pname}
+                pimage={prod.pimage}
+                pprice={prod.pprice}
+              ></ProdItem>
+            ))
+          ) : (
+            <div>
+              <FaSpinner />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
