@@ -3,7 +3,7 @@ import "./Category.css"
 const Category = () => {
     return (
       <div>
-        <h2 className="sidebar-title">Category</h2>
+        <h2 className="sidebar-title mt-5">Category</h2>
         <div>
           <Input/>
           <Input/>
